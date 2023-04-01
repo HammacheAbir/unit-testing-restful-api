@@ -1,10 +1,12 @@
 import express from "express"
 const User = require('./models/User')
 import usersList from "./seeds/user.seed"
+import {login} from "./service/login.js"
 
 const app = express()
 
 app.use(express.json())
+
 app.post('/login', async (req, res) => {
   const { password, name } = req.body
   if (!password) {
